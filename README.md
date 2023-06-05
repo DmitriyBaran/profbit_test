@@ -14,7 +14,7 @@ docker compose up -d
 1. заходим в контейнер
 
 ```
-exec -it php-skeleton  /bin/bash
+docker exec -it php-skeleton  /bin/bash
 ```
 устанавливаем симфу
 ```
