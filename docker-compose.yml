@@ -39,11 +39,11 @@ services:
     networks:
       - skeletonbr
     ports:
-      - '5431:5432'
+      - '5432:5432'
     working_dir: /app
     restart: always
     environment:
-      POSTGRES_DB: 'skeletonbr'
+      POSTGRES_DB: 'pg-book'
       POSTGRES_USER: 'devuser'
       POSTGRES_PASSWORD: '97y2amDpm'
     volumes:
