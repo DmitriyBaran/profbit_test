@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Products info</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr class="lead">
+            <th>Code</th>
+            <th>Type</th>
+            <th>Total quantity</th>
+            <th>Total price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for info in productInfo %}
+            <tr>
+                {% if info.code == info.type %}
+                    <td> {{ info.code }} </td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+
+                {% if info.code == info.type %}
+                    <td>  </td>
+                {% else %}
+                    <td>{{ info.type }}</td>
+                {% endif %}
+
+                <td>{{ info.total_quantity }}</td>
+                <td>{{ info.total_price }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

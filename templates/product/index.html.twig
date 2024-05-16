@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Products</h1>
+    <button class="btn btn-primary">
+        <a href="/product_info">Інформація</a>
+    </button>
+    <table class="table table-striped">
+        <thead>
+            <tr class="lead">
+                <th><a href="{{ path('product', {'sort': 'p.id', 'order': (sortField == 'p.id' and sortOrder == 'ASC') ? 'DESC' : 'ASC'}) }}">ID</a></th>
+                <th><a href="{{ path('product', {'sort': 'p.code', 'order': (sortField == 'p.code' and sortOrder == 'ASC') ? 'DESC' : 'ASC'}) }}">Code</a></th>
+                <th><a href="{{ path('product', {'sort': 'p.name', 'order': (sortField == 'p.name' and sortOrder == 'ASC') ? 'DESC' : 'ASC'}) }}">Name</a></th>
+                <th><a href="{{ path('product', {'sort': 'p.type', 'order': (sortField == 'p.type' and sortOrder == 'ASC') ? 'DESC' : 'ASC'}) }}">Type</a></th>
+                <th><a href="{{ path('product', {'sort': 'p.price', 'order': (sortField == 'p.price' and sortOrder == 'ASC') ? 'DESC' : 'ASC'}) }}">Price</a></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in pagination %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.code }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.type }}</td>
+                <td>{{ product.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
+
